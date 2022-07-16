@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Navbar, Container, Nav, NavItem} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Routes, Route, Link } from "react-router-dom";
+import Navegation from "./components/Navegation";
+import Personajes from "./components/Personajes";
+import Planetas from "./components/Planetas";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navegation />
+
+      <Container fluid >
+        <Routes>
+          <Route path="/" element={<Personajes />}>
+            Mis Personajes
+          </Route>
+          <Route exact path="/planetas" element={<Planetas />}>
+            Planetas
+          </Route>
+        </Routes>
+      </Container>
     </div>
   );
 }
+
 
 export default App;
